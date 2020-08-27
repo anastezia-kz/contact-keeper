@@ -1,3 +1,4 @@
 {
-    "mongoURI":"mongodb+srv://Kozlova:kozlova@contactkeeper.irmsg.mongodb.net/<dbname>?retryWrites=true&w=majority"
+    "mongoURI":"mongodb+srv://Kozlova:kozlova@contactkeeper.irmsg.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtSecret":"secret"
 }
