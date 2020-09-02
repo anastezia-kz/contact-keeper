@@ -8,11 +8,9 @@ const ContactForm = () => {
   const { addContact, current, clearCurrent, updateContact } = contactContext;
 
   useEffect(() => {
-    if (current !== null) {
-      setContact(current);
-    } else {
-      setContact({ name: '', email: '', phone: '', type: 'personal' });
-    }
+    current !== null
+      ? setContact(current)
+      : setContact({ name: '', email: '', phone: '', type: 'personal' });
   }, [contactContext, current]);
 
   const [contact, setContact] = useState({
@@ -29,11 +27,8 @@ const ContactForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (current === null) {
-      addContact(contact);
-    } else {
-      updateContact(contact);
-    }
+    current === null ? addContact(contact) : updateContact(contact);
+
     clearAll();
   };
 
