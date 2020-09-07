@@ -34,7 +34,7 @@ const ContactState = (props) => {
         name: 'Ron Wisley ',
         email: 'RW@gmai.com',
         phone: '333-333-3333',
-        type: 'professional',
+        type: 'professionafgl',
       },
     ],
     current: null,

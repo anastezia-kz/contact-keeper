@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import AlertContext from '../../context/alert/alertContext';
 
 const Register = () => {
+  const alertContext = useContext(AlertContext);
+
+  const { setAlert } = alertContext;
+
   const [user, setUser] = useState({
     name: '',
     emaul: '',
@@ -10,14 +15,20 @@ const Register = () => {
 
   const { name, email, password, password2 } = user;
 
-  const onChange = e => {
-      setUser({...user, [e.target.name]: e.target.value})
-  }
+  const onChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
 
-  const onSubmit = e => {
-      e.preventDefautl()
-      console.log('Register submit')
-  }
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (name === '' || email === '' || password === '') {
+      setAlert('Please enter all fields', 'danger');
+    } else if (password !== password2) {
+      setAlert('Password do not match', 'danger');
+    } else {
+      console.log('Register submit');
+    }
+  };
 
   return (
     <div className='form-contaimner'>
